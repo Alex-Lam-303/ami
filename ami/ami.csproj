@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{92F3B1E2-86D4-4393-AD20-46BDBB801603}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ami</RootNamespace>
+    <AssemblyName>ami</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>47051</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>
+    </CodesignProvision>
+    <MtouchSdkVersion>11.2</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchUseThumb>true</MtouchUseThumb>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: Zhan Zhang (CR9MTE75SX)</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>false</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>35241</IOSDebuggerPort>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchExtraArgs>--linkskip=refit --linkskip=Refit --linkskip=ami</MtouchExtraArgs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.0.18.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.0.18.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Analytics">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.18.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Analytics.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.18.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Crashes">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.18.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Crashes.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.18.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Refit">
+      <HintPath>..\packages\Refit.4.6.16\lib\netstandard2.0\Refit.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\portable-net45+win+wpa81+wp80\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.1.1\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Realm.DataBinding">
+      <HintPath>..\packages\Realm.DataBinding.1.2.0\lib\Xamarin.iOS10\Realm.DataBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="Realm">
+      <HintPath>..\packages\Realm.Database.3.0.0\lib\netstandard1.4\Realm.dll</HintPath>
+    </Reference>
+    <Reference Include="Realm.Sync">
+      <HintPath>..\packages\Realm.3.0.0\lib\netstandard1.4\Realm.Sync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-57x57%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-57x57%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-72x72%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-72x72%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-50x50%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-50x50%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-1024x1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\Image.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Icon-App.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\PenguinOutline.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\PenguinOutline.imageset\PenguinOutline.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\LaunchImage.imageset\" />
+    <Folder Include="Assets.xcassets\LaunchScreen.imageset\" />
+    <Folder Include="Assets.xcassets\Logo.imageset\" />
+    <Folder Include="Assets.xcassets\PenguinOutline.imageset\" />
+    <Folder Include="Assets.xcassets\Penny.imageset\" />
+    <Folder Include="Resources\Audios_en\" />
+    <Folder Include="Base.lproj\" />
+    <Folder Include="Resources\zh.lproj\" />
+    <Folder Include="Resources\en.lproj\" />
+    <Folder Include="Resources\Audios_zh\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Base.lproj\Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="FodyWeavers.xml" />
+    <None Include="packages.config" />
+    <None Include="Resources\RoundedButtonBlue.sketch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="NSDateExtensions.cs" />
+    <Compile Include="UserNotificationCenterDelegate.cs" />
+    <Compile Include="ViewControllers\HelpViewController.cs" />
+    <Compile Include="ViewControllers\HelpViewController.designer.cs">
+      <DependentUpon>HelpViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\LoginViewController.cs" />
+    <Compile Include="ViewControllers\LoginViewController.designer.cs">
+      <DependentUpon>LoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\NewReminderChildViewController.cs" />
+    <Compile Include="ViewControllers\NewReminderChildViewController.designer.cs">
+      <DependentUpon>NewReminderChildViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\NewReminderTableViewController.cs" />
+    <Compile Include="ViewControllers\NewReminderTableViewController.designer.cs">
+      <DependentUpon>NewReminderTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\RegistrationCodeViewController.cs" />
+    <Compile Include="ViewControllers\RegistrationCodeViewController.designer.cs">
+      <DependentUpon>RegistrationCodeViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\RegistrationInfoViewController.cs" />
+    <Compile Include="ViewControllers\RegistrationInfoViewController.designer.cs">
+      <DependentUpon>RegistrationInfoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ReminderTableController.cs" />
+    <Compile Include="ViewControllers\ReminderTableController.designer.cs">
+      <DependentUpon>ReminderTableController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\SetupChoiceViewController.cs" />
+    <Compile Include="ViewControllers\SetupChoiceViewController.designer.cs">
+      <DependentUpon>SetupChoiceViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\SetupNameViewController.cs" />
+    <Compile Include="ViewControllers\SetupNameViewController.designer.cs">
+      <DependentUpon>SetupNameViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\UnhideTextFieldBaseViewController.cs" />
+    <Compile Include="ViewControllers\AudioContentViewController.cs" />
+    <Compile Include="ViewControllers\AudioContentViewController.designer.cs">
+      <DependentUpon>AudioContentViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MainViewController.cs" />
+    <Compile Include="ViewControllers\MainViewController.designer.cs">
+      <DependentUpon>MainViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RefitInterfaces\IContentApi.cs" />
+    <Compile Include="RefitInterfaces\ICustomerApi.cs" />
+    <Compile Include="Model\AudioContentModel.cs" />
+    <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="Model\ReminderModel.cs" />
+    <Compile Include="Model\SettingsModel.cs" />
+    <Compile Include="Model\SongModel.cs" />
+    <Compile Include="Model\StoryModel.cs" />
+    <Compile Include="Model\VoiceCommandModel.cs" />
+    <Compile Include="Model\VoiceCommandPickerModel.cs" />
+    <Compile Include="Helper\IErrorHandleViewController.cs" />
+    <Compile Include="Helper\RefitErrorProcessing.cs" />
+    <Compile Include="ViewControllers\AddCustomCommandViewController.cs" />
+    <Compile Include="ViewControllers\AddCustomCommandViewController.designer.cs">
+      <DependentUpon>AddCustomCommandViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ContentResponseModel.cs" />
+    <Compile Include="ViewControllers\LanguageLearningViewController.cs" />
+    <Compile Include="ViewControllers\LanguageLearningViewController.designer.cs">
+      <DependentUpon>LanguageLearningViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\TranslationHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EntryBackground.png" />
+    <BundleResource Include="Resources\BabyProfile.png" />
+    <BundleResource Include="Resources\RoundedButtonBlue.png" />
+    <BundleResource Include="Resources\LongRoundedButtonMint.png" />
+    <BundleResource Include="Resources\LongRoundedButtonGreen.png" />
+    <BundleResource Include="Resources\LongRoundedButtonPink.png" />
+    <BundleResource Include="Resources\LongRoundedButtonBlue.png" />
+    <BundleResource Include="Resources\RoundedButtonYellow.png" />
+    <BundleResource Include="Resources\BellIcon%403x.png" />
+    <BundleResource Include="Resources\HelpIcon%403x.png" />
+    <BundleResource Include="Resources\homeIcon%403x.png" />
+    <BundleResource Include="Resources\.DS_Store" />
+    <BundleResource Include="Resources\iTunesArtwork%403x.png" />
+    <BundleResource Include="Resources\Speaker%403x.png" />
+    <BundleResource Include="Resources\BellIcon.png" />
+    <BundleResource Include="Resources\BellIcon%402x.png" />
+    <BundleResource Include="Resources\HelpIcon.png" />
+    <BundleResource Include="Resources\HelpIcon%402x.png" />
+    <BundleResource Include="Resources\homeIcon.png" />
+    <BundleResource Include="Resources\homeIcon%402x.png" />
+    <BundleResource Include="Resources\Speaker.png" />
+    <BundleResource Include="Resources\Speaker%402x.png" />
+    <BundleResource Include="Resources\RoundedButtonPink.png" />
+    <BundleResource Include="Resources\Audios_en\Q2xlYW4gdXAgeW91ciBtZXNz.caf" />
+    <BundleResource Include="Resources\Audios_en\QmUgcmVhZHkgZm9yIHlvdXIgcGxheWRhdGU=.caf" />
+    <BundleResource Include="Resources\Audios_en\QnJ1c2ggeW91ciB0ZWV0aA==.caf" />
+    <BundleResource Include="Resources\Audios_en\QnJ1c2ggeW91ciBoYWly.caf" />
+    <BundleResource Include="Resources\Audios_en\R2V0IHJlYWR5IGZvciBkYXljYXJl.caf" />
+    <BundleResource Include="Resources\Audios_en\R28gZG93bnN0YWlycyBmb3IgbXVtbXk=.caf" />
+    <BundleResource Include="Resources\Audios_en\R28gZG93bnN0YWlycyBmb3IgZGFkZHk=.caf" />
+    <BundleResource Include="Resources\Audios_en\RWF0IHZlZ2V0YWJsZXM=.caf" />
+    <BundleResource Include="Resources\Audios_en\SG93IHdhcyB5b3VyIGRheQ==.caf" />
+    <BundleResource Include="Resources\Audios_en\SGksIEknbSBQZW5ueQ==.caf" />
+    <BundleResource Include="Resources\Audios_en\TGV0IG11bW15IHRyaW0geW91ciB0b2VuYWls.caf" />
+    <BundleResource Include="Resources\Audios_en\TGV0J3MgZ28gcmVhZCBhIHN0b3J5IHRvZ2V0aGVy.caf" />
+    <BundleResource Include="Resources\Audios_en\UGxlYXNlIHNheSB0aGFuayB5b3U=.caf" />
+    <BundleResource Include="Resources\Audios_en\V2FrZSB1cA==.caf" />
+    <BundleResource Include="Resources\Audios_en\V2FzaCBoYW5kcyBmb3IgZGlubmVy.caf" />
+    <BundleResource Include="Resources\Audios_en\V2FzaCBZb3VyIEZhY2U=.caf" />
+    <BundleResource Include="Resources\Audios_en\VGFrZSBhIHNob3dlcg==.caf" />
+    <BundleResource Include="Resources\Audios_en\VGFrZSBtZWRpY2luZQ==.caf" />
+    <BundleResource Include="Resources\Audios_en\VGltZSBGb3IgQmVk.caf" />
+    <BundleResource Include="Resources\Audios_en\VHJpbSB5b3VyIGZpbmdlcm5haWxz.caf" />
+    <BundleResource Include="Resources\Audios_en\VXNlIGluc2lkZSBWb2ljZQ==.caf" />
+    <BundleResource Include="Resources\zh.lproj\Main.strings" />
+    <BundleResource Include="Resources\en.lproj\Main.strings" />
+    <BundleResource Include="Resources\zh.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\Audios_zh\5aW95aW95Yi354mZ.caf" />
+    <BundleResource Include="Resources\Audios_zh\5byA5aeL5rSX5r6h.caf" />
+    <BundleResource Include="Resources\Audios_zh\5L2g5LuK5aSp5oCO5LmI5qC3.caf" />
+    <BundleResource Include="Resources\Audios_zh\5oiR5pivUGVubnk=.caf" />
+    <BundleResource Include="Resources\Audios_zh\6aWt5YmN6KaB5rSX5omL.caf" />
+    <BundleResource Include="Resources\Audios_zh\6JSs6I+c5aW95ZCD.caf" />
+    <BundleResource Include="Resources\Audios_zh\6KaB6LW35bqK5LqG.caf" />
+    <BundleResource Include="Resources\Audios_zh\6KaB552h6KeJ5LqG5ZOm.caf" />
+    <BundleResource Include="Resources\Audios_zh\COWQg+iNr+aJjeWPr+S7pee7p+e7reeOqQ==.caf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Refit.4.6.16\build\netstandard1.4\refit.targets" Condition="Exists('..\packages\Refit.4.6.16\build\netstandard1.4\refit.targets')" />
+  <Import Project="..\packages\Fody.2.4.6\build\Fody.targets" Condition="Exists('..\packages\Fody.2.4.6\build\Fody.targets')" />
+  <Import Project="..\packages\Realm.Database.3.0.0\build\Realm.Database.targets" Condition="Exists('..\packages\Realm.Database.3.0.0\build\Realm.Database.targets')" />
+  <Import Project="..\packages\Realm.3.0.0\build\Realm.targets" Condition="Exists('..\packages\Realm.3.0.0\build\Realm.targets')" />
+</Project>

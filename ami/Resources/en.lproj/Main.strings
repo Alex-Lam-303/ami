@@ -1,0 +1,65 @@
+﻿"3Qb-VO-awx.text" = "What is your child's nickname?";
+"hK3-AL-bne.text" = "This help us personalise commands in the future";
+"fGz-4X-gnK.placeholder" = "Name";
+"9cf-ve-o5A.normalTitle" = "Continue";
+
+"iFH-pe-qQ3.text" = "Message Selection";
+"ge8-Yf-4YG.text" = "After choosing desired message, press button";
+"7pB-QJ-5YX.normalTitle" = "Choice One";
+"9te-DA-LsV.normalTitle" = "Choice Two";
+"fZr-Ex-zg1.normalTitle" = "Choice Three";
+"iWf-Ty-mcV.normalTitle" = "Choice Four";
+"QPM-I9-7XQ.normalTitle" = "Finish";
+
+"Yt3-nE-dS7.title" = "Messages";
+"YV7-Cf-VBr.title" = "Help";
+"xye-r9-g1h.title" = "Learning";
+"cH8-Z1-lRo.title" = "Reminders";
+
+"Mlu-Sj-Nel.text" = "Your Favourite Messages";
+"n9w-pQ-eqS.text" = "Press to play messages on toy";
+"80r-ar-n1b.normalTitle" = "Choice One";
+"yhq-lY-qUA.normalTitle" = "Choice Two";
+"zSi-1l-fXn.normalTitle" = "Choice Three";
+"fv2-HS-2N8.normalTitle" = "Choice Four";
+"22B-9K-Kmq.text" = "Want to add your own message?";
+"FWd-2I-kU8.normalTitle" = "Add";
+"RAf-df-YQg.normalTitle" = "Edit";
+
+"L1i-bp-Zec.text" = "Enter message name:";
+"enc-hZ-Zmm.text" = "This can be displayed in the selection";
+"Cay-Nz-zNU.text" = "Hold the button to record:";
+"osL-r7-fH8.normalTitle" = "Play";
+"hgV-cE-dtI.normalTitle" = "Retry";
+"u4p-qZ-g08.normalTitle" = "Hold to Talk";
+"zun-SZ-5hY.normalTitle" = "Cancel";
+"M1c-7E-hPm.normalTitle" = "Finish";
+
+"mKd-8O-mxx.title" = "Reminders";
+"edd-df-GTh.title" = "New Reminders";
+"LPq-v4-qop.title" = "Cancel";
+"NTz-SN-Ldd.title" = "Done";
+"8j3-Zk-Uf7.text" = "Time";
+"e2p-6w-Qou.text" = "To Be Selected";
+"FHV-HE-WoM.text" = "Message";
+"Isc-lE-NT9.text" = "To Be Selected";
+
+"X3b-kg-pgH.text" = "We are sorry that you are having issues with Penny. Please let us know how we can help you by contacting customer support.";
+"SrD-uy-efE.normalTitle" = "Email Customer Support";
+"dIC-F5-fjs.normalTitle" = "Call Customer Support";
+"tFj-GB-CYG.normalTitle" = "Visit Our Website";
+"JLH-9G-4py.normalTitle" = "改变为中文🇨🇳";
+
+"x5X-oV-OxW.text" = "Other Languages";
+"z4j-nJ-aKm.text" = "Use Penny to translate or learn other languages";
+"Hll-TA-25B.text" = "From";
+"PSp-p5-o6h.segmentTitles[0]" = "Chinese";
+"PSp-p5-o6h.segmentTitles[1]" = "English";
+"PSp-p5-o6h.segmentTitles[2]" = "Spanish";
+"YAR-X2-uad.segmentTitles[2]" = "Chinese";
+"YAR-X2-uad.segmentTitles[0]" = "English";
+"YAR-X2-uad.segmentTitles[1]" = "Spanish";
+"A8D-I0-KeR.text" = "To";
+"7DL-xy-egD.placeholder" = "Custom Messages";
+"V2w-9E-ART.normalTitle" = "Play";
+"Euy-SY-bvu.text" = "Vocabulary Building";
